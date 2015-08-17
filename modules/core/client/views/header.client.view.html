@@ -1,0 +1,72 @@
+<md-list ng-controller="HeaderController">
+  <!-- MENU ITEM LIST -->
+  <md-list  data-ng-repeat="item in menu.items | orderBy: 'position'"
+            data-ng-if="menu.shouldRender(authentication.user);"
+            ng-switch="item.type">
+    <!-- DEFAULT -->
+    <md-list-item ng-switch-default
+                  data-ng-if="item.shouldRender(authentication.user);"
+                  ng-click="navigateTo(item.state, $event)">
+      <p>{{::item.title}}</p>
+    </md-list-item>
+    <!-- DROPDOWN -->
+    <md-list-item ng-switch-when="dropdown"
+                  data-ng-if="item.shouldRender(authentication.user);"
+                  ng-click="toggleMenu(item.title)">
+      <p>{{::item.title}}</p>
+      <ng-md-icon icon="keyboard_arrow_down" data-ng-if="!dropdownOpen[item.title]"></ng-md-icon>
+      <ng-md-icon icon="keyboard_arrow_up" data-ng-if="dropdownOpen[item.title]"></ng-md-icon>
+    </md-list-item>
+    <!-- SUB ITEMS LIST -->
+    <md-list id="list_{{ item.title }}" style="display: none">
+      <md-list-item data-ng-repeat="subitem in item.items | orderBy: 'position'"
+                    data-ng-if="subitem.shouldRender(authentication.user);"
+                    data-ui-sref-active="active"
+                    ng-click="navigateTo(subitem.state, $event)">
+        <ng-md-icon icon="{{subitem.icon}}"></ng-md-icon>
+        <p data-ng-bind="subitem.title"></p>
+      </md-list-item>
+    </md-list>
+  </md-list>
+  <md-list data-ng-hide="authentication.user">
+    <md-list-item ng-click="navigateTo('authentication.signin', $event)">
+      <p>Sign Up</p>
+    </md-list-item>
+    <md-list-item ng-click="navigateTo('authentication.signup', $event)">
+      <p>Sign In</p>
+    </md-list-item>
+  </md-list>
+  <md-list data-ng-show="authentication.user">
+    <md-list-item ng-click="toggleMenu('User')">
+      <img  data-ng-src="{{authentication.user.profileImageURL}}"
+            alt="{{authentication.user.displayName}}"
+            class="header-profile-image" />
+      <p data-ng-bind="authentication.user.displayName"></p>
+      <ng-md-icon icon="keyboard_arrow_down" data-ng-if="!dropdownOpen['User']"></ng-md-icon>
+      <ng-md-icon icon="keyboard_arrow_up" data-ng-if="dropdownOpen['User']"></ng-md-icon>
+    </md-list-item>
+    <md-list id="list_User" style="display: none">
+      <md-list-item ng-click="navigateTo('settings.profile', $event)">
+        <md-icon></md-icon>
+        <p>Edit Profile</p>
+      </md-list-item>
+      <md-list-item ng-click="navigateTo('settings.picture', $event)">
+        <md-icon></md-icon>
+        <p>Change Profile Picture</p>
+      </md-list-item>
+      <md-list-item data-ng-show="authentication.user && authentication.user.provider === 'local'" ng-click="navigateTo('settings.password', $event)">
+        <md-icon></md-icon>
+        <p>Change Password</p>
+      </md-list-item>
+      <md-list-item ng-click="navigateTo('settings.accounts', $event)">
+        <md-icon></md-icon>
+        <p>Manage Social Accounts</p>
+      </md-list-item>
+      <md-divider></md-divider>
+      <md-list-item ng-click="navigateTo('signout', $event)">
+        <md-icon></md-icon>
+        <p>Signout</p>
+      </md-list-item>
+    </md-list>
+  </md-list>
+</md-list>
