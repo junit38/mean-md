@@ -37,7 +37,7 @@ angular.module('core').controller('HeaderController', ['$scope', '$state', '$loc
       } else {
         $scope.dropdownOpen[elem] = true;
       }
-      $('#list_' + elem).toggle('slow');
+      $('#list_' + elem).toggle('preview');
     };
   }
 ]);
