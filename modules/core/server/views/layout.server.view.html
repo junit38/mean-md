@@ -35,7 +35,7 @@
   {% for cssFile in cssFiles %}<link rel="stylesheet" href="{{cssFile}}">{% endfor %}
 </head>
 
-<body class="ng-cloak">
+<body class="ng-cloak" layout="column">
   <!-- <header data-ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
   <section class="content">
     <section class="container">
@@ -47,7 +47,7 @@
       <md-button ng-click="toggleSidenav('left')" hide-gt-sm class="md-icon-button">
         <md-icon aria-label="Menu" md-svg-icon="https://s3-us-west-2.amazonaws.com/s.cdpn.io/68133/menu.svg"></md-icon>
       </md-button>
-      <h1>MEAN.JS</h1>
+      <h1><a href="/">MEAN.JS</a></h1>
     </div>
   </md-toolbar>
   <div layout="row" flex>
