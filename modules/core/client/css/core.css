@@ -36,6 +36,6 @@ a:hover .header-profile-image {
 md-sidenav ul {
   padding: 0;
 }
-.docs-menu:ul {
-  padding: 0;
+fieldset {
+  border: none;
 }

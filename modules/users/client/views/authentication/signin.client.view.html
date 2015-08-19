@@ -1,30 +1,29 @@
 <div data-ng-controller="AuthenticationController">
-  <h3 class="col-md-12 text-center">Or with your account</h3>
-  <div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
-    <form data-ng-submit="signin()" class="signin form-horizontal" autocomplete="off">
+  <h3 layout="" layout-align="center center">Or with your account</h3>
+  <md-whiteframe class="md-whiteframe-z1" layout="" layout-align="center center">
+    <form data-ng-submit="signin()" autocomplete="off">
       <fieldset>
-        <div class="form-group">
-          <label for="username">Username</label>
+        <md-input-container>
+          <label>Username</label>
           <input type="text" id="username" name="username" class="form-control"
                data-ng-model="credentials.username" placeholder="Username">
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" name="password" class="form-control"
+        </md-input-container>
+        <md-input-container>
+          <label>Password</label>
+          <input type="password" id="password" name="password"
                data-ng-model="credentials.password" placeholder="Password">
+        </md-input-container>
+        <div layout="row">
+          <md-button type="submit" class="md-raised md-primary">Sign in</md-button>
+          <p>&nbsp; or&nbsp;</p>
+          <md-button class="md-primary" data-ui-sref="authentication.signup">Sign up</md-button>
         </div>
-        <div class="text-center form-group">
-          <button type="submit" class="btn btn-primary">Sign in</button>
-          &nbsp; or&nbsp;
-          <a data-ui-sref="authentication.signup">Sign up</a>
-        </div>
-        <div class="text-center forgot-password">
-          <a data-ui-sref="password.forgot">Forgot your password?</a>
-        </div>
-        <alert type="danger" data-ng-show="error" class="text-center text-danger">
-          <span data-ng-bind="error"></span>
+        <md-button class="md-primary" data-ui-sref="password.forgot">Forgot your password?</md-button>
+        <alert type="danger" data-ng-show="error" layout="" layout-align="center">
+          <md-button class="md-raised md-warn" data-ng-bind="error"></md-button>
         </alert>
       </fieldset>
     </form>
-  </div>
+  </md-whiteframe>
 </div>
+
