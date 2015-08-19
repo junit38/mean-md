@@ -33,3 +33,9 @@ a:hover .header-profile-image {
   padding-top: 11px !important;
   padding-bottom: 11px !important;
 }
+md-sidenav ul {
+  padding: 0;
+}
+.docs-menu:ul {
+  padding: 0;
+}

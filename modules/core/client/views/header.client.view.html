@@ -1,4 +1,4 @@
-<ul ng-controller="HeaderController">
+<ul class="docs-menu" ng-controller="HeaderController">
   <li data-ng-repeat="item in menu.items | orderBy: 'position'"
       data-ng-if="item.shouldRender(authentication.user);"
       ng-switch="item.type">
@@ -70,7 +70,7 @@
         </li>
         <md-divider></md-divider>
         <li>
-          <md-list-item ng-click="navigateTo('signout', $event)">
+          <md-list-item ng-click="navigateTo('/api/auth/signout', $event)">
             <md-icon></md-icon>
             <p>Signout</p>
           </md-list-item>

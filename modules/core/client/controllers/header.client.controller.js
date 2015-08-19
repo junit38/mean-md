@@ -25,9 +25,10 @@ angular.module('core').controller('HeaderController', ['$scope', '$state', '$loc
       if ($mdSidenav('left').isOpen())
         $mdSidenav('left').toggle();
       if (to[0] === '/') {
-        $location.path();
+        window.target = '_self';
+        window.location = to;
       }
-      else 
+      else if (to && to !== '')
         $state.go(to);
     };
 
