@@ -19,8 +19,8 @@
       <img data-ng-src="{{message.profileImageURL}}" class="md-avatar" alt="{{message.username}}" />
       <div class="md-list-item-text">
         <h3 data-ng-bind="message.username"></h3>
-        <h4 data-ng-bind="message.created | date:'mediumTime'"></h4>
         <p data-ng-bind="message.text"></p>
+        <small data-ng-bind="message.created | date:'mediumTime'"></small>
       </div>
     </md-list-item>
   </md-list>
