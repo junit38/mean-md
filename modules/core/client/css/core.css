@@ -39,3 +39,6 @@ md-sidenav ul {
 fieldset {
   border: none;
 }
+.md-success {
+  color: #00695c;
+}
