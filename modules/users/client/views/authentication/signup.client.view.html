@@ -1,6 +1,6 @@
 <div data-ng-controller="AuthenticationController">
   <h3 layout="" layout-align="center center">Or sign up using your email</h3>
-  <md-whiteframe class="md-whiteframe-z1" layout="" layout-align="center center">
+  <md-whiteframe class="md-whiteframe-z1" layout="">
     <form name="userForm" data-ng-submit="signup()" novalidate autocomplete="off">
       <fieldset>
         <div layout layout-sm="column">
@@ -32,7 +32,7 @@
         <div layout="row" layout-align="center center">
           <md-button type="submit" class="md-raised md-primary">Sign up</md-button>
           <p>&nbsp; or&nbsp;</p>
-          <md-button class="md-primary" data-ui-sref="authentication.signup">Sign in</md-button>
+          <md-button class="md-primary" data-ui-sref="authentication.signin">Sign in</md-button>
         </div>
         <alert type="danger" data-ng-show="error" layout="" layout-align="center">
           <md-button class="md-warn md-hue-2" data-ng-bind="error"></md-button>
