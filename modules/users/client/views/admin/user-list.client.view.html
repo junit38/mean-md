@@ -1,20 +1,20 @@
-<section>
-  <div class="page-header">
-    <div class="row">
-      <div class="col-md-4">
-        <h1>Users</h1>
+<section layout="column">
+  <h1>Users</h1>
+  <md-input-container>
+    <label>Search</label>
+    <input type="text" data-ng-model="search" ng-change="figureOutItemsToDisplay()" />
+  </md-input-container>
+  <md-list>
+    <md-list-item class="md-2-line" data-ng-repeat="user in pagedItems" data-ui-sref="admin.user({userId: user._id})" ng-click="navigateTo({userId: user._id}, $event)">
+      <img ng-src="{{ user.profileImageURL }}" alt="{{ user.username }}" class="md-avatar" />
+      <div class="md-list-item-text">
+        <h3 data-ng-bind="user.username"></h3>
+        <h4 data-ng-bind="user.email"></h4>
       </div>
-      <div class="col-md-4" style="margin-top: 2em">
-        <input class="form-control col-md-4" type="text" data-ng-model="search" placeholder="Search" ng-change="figureOutItemsToDisplay()" />
-      </div>
-    </div>
-  </div>
-  <div class="list-group">
-    <a data-ng-repeat="user in pagedItems" data-ui-sref="admin.user({userId: user._id})" class="list-group-item">
-      <h4 class="list-group-item-heading" data-ng-bind="user.username"></h4>
-      <p class="list-group-item-text" data-ng-bind="user.email"></p>
-    </a>
-  </div>
+      <ng-md-icon icon="perm_identity" ng-click="" data-ui-sref="admin.user({userId: user._id})" aria-label="Open Chat" class="md-secondary md-hue-3"></ng-md-icon>
+    </md-list-item>
+  </md-list>
 
-  <pagination boundary-links="true" max-size="8" items-per-page="itemsPerPage" total-items="filterLength" ng-model="currentPage" ng-change="pageChanged()"></pagination>
+
+  <pagination layout="" layout-align="center center" boundary-links="true" max-size="8" items-per-page="itemsPerPage" total-items="filterLength" ng-model="currentPage" ng-change="pageChanged()"></pagination>
 </section>
