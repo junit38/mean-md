@@ -21,7 +21,7 @@ angular.module(ApplicationConfiguration.applicationModuleName)
   .run(function ($rootScope, $mdSidenav, $state, $timeout) {
     $rootScope.navigateTo = function(to, event) {
       if (typeof to === 'object' && to.state && to.param) {
-        $state.transitionTo(to.state, to.param)
+        $state.transitionTo(to.state, to.param);
       } else if (typeof to === 'string') {
         if ($mdSidenav('left').isOpen())
           $mdSidenav('left').toggle();
