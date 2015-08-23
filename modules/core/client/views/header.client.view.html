@@ -14,7 +14,7 @@
         <ng-md-icon icon="keyboard_arrow_down" data-ng-if="!dropdownOpen[item.title]"></ng-md-icon>
         <ng-md-icon icon="keyboard_arrow_up" data-ng-if="dropdownOpen[item.title]"></ng-md-icon>
       </md-list-item>
-      <ul id="list_{{ item.title }}" style="display: none">
+      <ul id="list_{{ item.title }}" hide>
         <li data-ng-repeat="subitem in item.items | orderBy: 'position'"
             data-ng-if="subitem.shouldRender(authentication.user);">
           <md-list-item ng-click="navigateTo(subitem.state, $event)">
@@ -25,12 +25,12 @@
       </ul>
   </li>
   <li data-ng-hide="authentication.user">
-    <md-list-item ng-click="navigateTo('authentication.signin', $event)">
+    <md-list-item ng-click="navigateTo('authentication.signup', $event)">
       <p>Sign Up</p>
     </md-list-item>
   </li>
   <li data-ng-hide="authentication.user">
-    <md-list-item ng-click="navigateTo('authentication.signup', $event)">
+    <md-list-item ng-click="navigateTo('authentication.signin', $event)">
       <p>Sign In</p>
     </md-list-item>
   </li>
@@ -43,7 +43,7 @@
         <ng-md-icon icon="keyboard_arrow_down" data-ng-if="!dropdownOpen['User']"></ng-md-icon>
         <ng-md-icon icon="keyboard_arrow_up" data-ng-if="dropdownOpen['User']"></ng-md-icon>
       </md-list-item>
-      <ul id="list_User" style="display: none">
+      <ul id="list_User" hide>
         <li> 
           <md-list-item ng-click="navigateTo('settings.profile', $event)">
             <md-icon></md-icon>
