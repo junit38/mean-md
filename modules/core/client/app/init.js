@@ -15,8 +15,24 @@ angular.module(ApplicationConfiguration.applicationModuleName)
     $scope.toggleSidenav = function(menuId) {
       $mdSidenav(menuId).toggle();
     };
-   
   }]);
+
+angular.module(ApplicationConfiguration.applicationModuleName)
+  .run(function ($rootScope, $mdSidenav, $state, $timeout) {
+    $rootScope.navigateTo = function(to, event) {
+      if (typeof to === 'object' && to.state && to.param) {
+        $state.transitionTo(to.state, to.param)
+      } else if (typeof to === 'string') {
+        if ($mdSidenav('left').isOpen())
+          $mdSidenav('left').toggle();
+        if (to && to[0] === '/') {
+          window.target = '_self';
+          window.location = to;
+        } else if (to && to !== '')
+          $state.go(to);
+      }
+    };
+  });
 
 angular.module(ApplicationConfiguration.applicationModuleName).run(function ($rootScope, $state, Authentication) {
   // Check authentication before changing state

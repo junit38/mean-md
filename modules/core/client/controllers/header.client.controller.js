@@ -21,17 +21,6 @@ angular.module('core').controller('HeaderController', ['$scope', '$state', '$loc
       $scope.isCollapsed = false;
     });
 
-    $scope.navigateTo = function(to, event) {
-      if ($mdSidenav('left').isOpen())
-        $mdSidenav('left').toggle();
-      if (to[0] === '/') {
-        window.target = '_self';
-        window.location = to;
-      }
-      else if (to && to !== '')
-        $state.go(to);
-    };
-
     $scope.toggleMenu = function(elem) {
       if ($scope.dropdownOpen[elem]) {
         $scope.dropdownOpen[elem] = !$scope.dropdownOpen[elem];

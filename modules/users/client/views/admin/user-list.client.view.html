@@ -4,17 +4,17 @@
     <label>Search</label>
     <input type="text" data-ng-model="search" ng-change="figureOutItemsToDisplay()" />
   </md-input-container>
-  <md-list>
-    <md-list-item class="md-2-line" data-ng-repeat="user in pagedItems" data-ui-sref="admin.user({userId: user._id})" ng-click="navigateTo({userId: user._id}, $event)">
-      <img ng-src="{{ user.profileImageURL }}" alt="{{ user.username }}" class="md-avatar" />
-      <div class="md-list-item-text">
-        <h3 data-ng-bind="user.username"></h3>
-        <h4 data-ng-bind="user.email"></h4>
-      </div>
-      <ng-md-icon icon="perm_identity" ng-click="" data-ui-sref="admin.user({userId: user._id})" aria-label="Open Chat" class="md-secondary md-hue-3"></ng-md-icon>
-    </md-list-item>
-  </md-list>
-
+  <md-whiteframe class="md-whiteframe-z1" ng-if="pagedItems.length">
+    <md-list>
+      <md-list-item class="md-2-line" data-ng-repeat="user in pagedItems" ng-click="navigateTo({state: 'admin.user', param: {userId: user._id}}, $event)" aria-label="{{ user.username }}">
+        <img ng-src="{{ user.profileImageURL }}" alt="{{ user.username }}" class="md-avatar" />
+        <div class="md-list-item-text">
+          <h3 data-ng-bind="user.username"></h3>
+          <h4 data-ng-bind="user.email"></h4>
+        </div>
+      </md-list-item>
+    </md-list>
+  </md-whiteframe>
 
   <pagination layout="" layout-align="center center" boundary-links="true" max-size="8" items-per-page="itemsPerPage" total-items="filterLength" ng-model="currentPage" ng-change="pageChanged()"></pagination>
 </section>
