@@ -1,8 +1,10 @@
 <ul class="docs-menu" ng-controller="HeaderController">
   <li data-ng-repeat="item in menu.items | orderBy: 'position'"
+      data-ui-sref-active="active"
       data-ng-if="item.shouldRender(authentication.user);"
       ng-switch="item.type">
       <md-list-item ng-switch-default
+                    data-ui-sref="{{item.state}}"
                     data-ng-if="item.shouldRender(authentication.user);"
                     ng-click="navigateTo(item.state, $event)">
         <p>{{::item.title}}</p>
@@ -16,26 +18,27 @@
       </md-list-item>
       <ul id="list_{{ item.title }}" hide>
         <li data-ng-repeat="subitem in item.items | orderBy: 'position'"
+            data-ui-sref-active="active"
             data-ng-if="subitem.shouldRender(authentication.user);">
-          <md-list-item ng-click="navigateTo(subitem.state, $event)">
+          <md-list-item data-ui-sref="{{subitem.state}}" ng-click="navigateTo(subitem.state, $event)" aria-label="{{subitem.title}}">
             <ng-md-icon icon="{{subitem.icon}}"></ng-md-icon>
             <p data-ng-bind="subitem.title"></p>
           </md-list-item>
         </li>
       </ul>
   </li>
-  <li data-ng-hide="authentication.user">
-    <md-list-item ng-click="navigateTo('authentication.signup', $event)">
+  <li data-ng-hide="authentication.user" data-ui-sref-active="active">
+    <md-list-item data-ui-sref="authentication.signup" ng-click="navigateTo('authentication.signup', $event)">
       <p>Sign Up</p>
     </md-list-item>
   </li>
-  <li data-ng-hide="authentication.user">
-    <md-list-item ng-click="navigateTo('authentication.signin', $event)">
+  <li data-ng-hide="authentication.user" data-ui-sref-active="active">
+    <md-list-item data-ui-sref="authentication.signin" ng-click="navigateTo('authentication.signin', $event)">
       <p>Sign In</p>
     </md-list-item>
   </li>
   <li data-ng-show="authentication.user">
-     <md-list-item ng-click="toggleMenu('User')">
+     <md-list-item ng-click="toggleMenu('User')" aria-label="Toggle Menu User">
         <img  data-ng-src="{{authentication.user.profileImageURL}}"
               alt="{{authentication.user.displayName}}"
               class="header-profile-image" />
@@ -44,26 +47,26 @@
         <ng-md-icon icon="keyboard_arrow_up" data-ng-if="dropdownOpen['User']"></ng-md-icon>
       </md-list-item>
       <ul id="list_User" hide>
-        <li> 
-          <md-list-item ng-click="navigateTo('settings.profile', $event)">
+        <li data-ui-sref-active="active"> 
+          <md-list-item data-ui-sref="settings.profile" ng-click="navigateTo('settings.profile', $event)">
             <md-icon></md-icon>
             <p>Edit Profile</p>
           </md-list-item>
         </li>
-        <li>
-          <md-list-item ng-click="navigateTo('settings.picture', $event)">
+        <li data-ui-sref-active="active">
+          <md-list-item data-ui-sref="settings.picture" ng-click="navigateTo('settings.picture', $event)">
             <md-icon></md-icon>
             <p>Change Profile Picture</p>
           </md-list-item>
         </li>
-        <li>
-          <md-list-item data-ng-show="authentication.user && authentication.user.provider === 'local'" ng-click="navigateTo('settings.password', $event)">
+        <li data-ui-sref-active="active">
+          <md-list-item data-ui-sref="settings.password" data-ng-show="authentication.user && authentication.user.provider === 'local'" ng-click="navigateTo('settings.password', $event)">
             <md-icon></md-icon>
             <p>Change Password</p>
           </md-list-item>
         </li>
-        <li>
-          <md-list-item ng-click="navigateTo('settings.accounts', $event)">
+        <li data-ui-sref-active="active">
+          <md-list-item data-ui-sref="settings.accounts" ng-click="navigateTo('settings.accounts', $event)">
             <md-icon></md-icon>
             <p>Manage Social Accounts</p>
           </md-list-item>
