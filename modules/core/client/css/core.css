@@ -9,8 +9,12 @@
 .x-ng-cloak {
   display: none !important;
 }
+.img-responsive {
+  max-width: 100%;
+}
 .header-profile-image {
   width: 24px;
+  height: 24px;
   margin-top: 16px;
   margin-bottom: 12px;
   box-sizing: content-box;
