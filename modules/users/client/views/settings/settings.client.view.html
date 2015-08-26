@@ -1,9 +1,7 @@
 <section data-ng-controller="SettingsController">
-  <div class="page-header">
-    <h1>Settings</h1>
-  </div>
-  <div class="row">
-    <nav class="col-sm-3 col-md-3">
+  <h1>Settings</h1>
+  <div layout-gt-md="row" layout-align="space-around">
+    <nav flex-gt-md="20">
       <ul class="nav nav-pills nav-stacked">
         <li data-ui-sref-active="active">
           <a data-ui-sref="settings.profile">Edit Profile</a>
@@ -19,8 +17,6 @@
         </li>
       </ul>
     </nav>
-    <div class="col-sm-9 col-md-8 settings-view">
-      <div data-ui-view></div>
-    </div>
+    <div data-ui-view flex-gt-md="75"></div>
   </div>
 </section>
