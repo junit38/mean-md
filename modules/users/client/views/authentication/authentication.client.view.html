@@ -1,61 +1,78 @@
 <section layout="column" layout-align="center center" data-ng-controller="AuthenticationController">
   <h3>Sign in using your social accounts</h3>
-  <div>
-    <md-button  ng-click="callOauthProvider('/api/auth/facebook')"
-                aria-label="Facebook Provider"
-                class="md-fab md-primary"
-                style="background-size: 112% 112%;
-        background-position: -3px;
-        background-image: url('/modules/users/client/img/buttons/facebook.png');
-        background-repeat: space;
-        background-color: white;
-    "></md-button>
-    <md-button  ng-click="callOauthProvider('/api/auth/twitter')"
-                aria-label="Twitter Provider"
-                class="md-fab md-primary"
-                style="background-size: 112% 112%;
-        background-position: -3px;
-        background-image: url('/modules/users/client/img/buttons/twitter.png');
-        background-repeat: space;
-        background-color: white;
-    "></md-button>
-    <md-button  ng-click="callOauthProvider('/api/auth/google')"
-                aria-label="Google Provider"
-                class="md-fab md-primary"
-                style="background-size: 112% 112%;
-        background-position: -3px;
-        background-image: url('/modules/users/client/img/buttons/google.png');
-        background-repeat: space;
-        background-color: white;
-    "></md-button>
-    <md-button  ng-click="callOauthProvider('/api/auth/linkedin')"
-                aria-label="Linkedin Provider"
-                class="md-fab md-primary"
-                style="background-size: 112% 112%;
-        background-position: -3px;
-        background-image: url('/modules/users/client/img/buttons/linkedin.png');
-        background-repeat: space;
-        background-color: white;
-    "></md-button>
-    <md-button  ng-click="callOauthProvider('/api/auth/github')"
-                aria-label="Github Provider"
-                class="md-fab md-primary"
-                style="background-size: 112% 112%;
-        background-position: -3px;
-        background-image: url('/modules/users/client/img/buttons/github.png');
-        background-repeat: space;
-        background-color: white;
-    "></md-button>
-    <md-button  ng-click="callOauthProvider('/api/auth/paypal')"
-                aria-label="Paypal Provider"
-                class="md-fab md-primary"
-                style="background-size: 90% 90%;
-        background-position: 4px;
-        background-image: url('/modules/users/client/img/buttons/paypal.png');
-        background-repeat: space;
-        background-color: white;
-    "></md-button>
-  </div>
+    <div class="authenticationGridList" style="width:100%">
+      <md-grid-list   md-cols-sm="3"
+                      md-cols-md="3"
+                      md-cols-gt-md="6"
+                      md-row-height="62px">
+        <md-grid-tile>
+          <md-button  ng-click="callOauthProvider('/api/auth/facebook')"
+                      aria-label="Facebook Provider"
+                      class="md-fab md-primary"
+                      style="background-size: 112% 112%;
+              background-position: -3px;
+              background-image: url('/modules/users/client/img/buttons/facebook.png');
+              background-repeat: space;
+              background-color: white;
+          "></md-button>
+        </md-grid-tile>
+        <md-grid-tile>
+          <md-button  ng-click="callOauthProvider('/api/auth/twitter')"
+                      aria-label="Twitter Provider"
+                      class="md-fab md-primary"
+                      style="background-size: 112% 112%;
+              background-position: -3px;
+              background-image: url('/modules/users/client/img/buttons/twitter.png');
+              background-repeat: space;
+              background-color: white;
+          "></md-button>
+        </md-grid-tile>
+        <md-grid-tile>
+          <md-button  ng-click="callOauthProvider('/api/auth/google')"
+                      aria-label="Google Provider"
+                      class="md-fab md-primary"
+                      style="background-size: 112% 112%;
+              background-position: -3px;
+              background-image: url('/modules/users/client/img/buttons/google.png');
+              background-repeat: space;
+              background-color: white;
+          "></md-button>
+        </md-grid-tile>
+        <md-grid-tile>
+          <md-button  ng-click="callOauthProvider('/api/auth/linkedin')"
+                      aria-label="Linkedin Provider"
+                      class="md-fab md-primary"
+                      style="background-size: 112% 112%;
+              background-position: -3px;
+              background-image: url('/modules/users/client/img/buttons/linkedin.png');
+              background-repeat: space;
+              background-color: white;
+          "></md-button>
+        </md-grid-tile>
+        <md-grid-tile>
+          <md-button  ng-click="callOauthProvider('/api/auth/github')"
+                      aria-label="Github Provider"
+                      class="md-fab md-primary"
+                      style="background-size: 112% 112%;
+              background-position: -3px;
+              background-image: url('/modules/users/client/img/buttons/github.png');
+              background-repeat: space;
+              background-color: white;
+          "></md-button>
+        </md-grid-tile>
+        <md-grid-tile>
+          <md-button  ng-click="callOauthProvider('/api/auth/paypal')"
+                      aria-label="Paypal Provider"
+                      class="md-fab md-primary"
+                      style="background-size: 90% 90%;
+              background-position: 4px;
+              background-image: url('/modules/users/client/img/buttons/paypal.png');
+              background-repeat: space;
+              background-color: white;
+          "></md-button>
+        </md-grid-tile>
+      </md-grid-list>
+    </div>
   <div ui-view></div>
 </section>
 

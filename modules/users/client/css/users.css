@@ -34,3 +34,13 @@
   min-height: 150px;
   max-height: 150px;
 }
+
+.authenticatioGridList {
+  width: 100%;
+}
+.authenticationGridList md-grid-list {
+  margin: 8px;
+}
+.authenticationGridList md-grid-tile {
+  transition: all 400ms ease-out 50ms;
+}
