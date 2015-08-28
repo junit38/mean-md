@@ -9,12 +9,12 @@
           Select Image <input type="file" nv-file-select uploader="uploader">
         </md-button>
       </div>
-      <div data-ng-show="uploader.queue.length">
+      <div data-ng-show="uploader.queue.length" layout="" layout-align="center">
         <md-button class="md-raised md-primary" data-ng-click="uploadProfilePicture();">Upload</md-button>
         <md-button class="md-raised" data-ng-click="cancelUpload();">Cancel</md-button>
       </div>
       <div data-ng-show="success" layout="" layout-align="center">
-        <md-button class="md-success">Profile Saved Successfully</md-button>
+        <md-button class="md-success">Profile Picture Changed Successfully</md-button>
       </div>
       <div data-ng-show="error" layout="" layout-align="center">
         <md-button class="md-warn md-hue-2" data-ng-bind="error"></md-button>
