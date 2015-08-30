@@ -1,0 +1,85 @@
+<md-content flex role="navigation" class="md-default-theme" ng-controller="SidenavController">
+  <ul class="docs-menu">
+    <li ng-repeat="item in menu.items | orderBy: 'position'"
+        ui-sref-active="active"
+        ng-if="item.shouldRender(authentication.user);"
+        ng-switch="item.type">
+        <md-list-item ng-switch-default
+                      ui-sref="{{item.state}}"
+                      ng-if="item.shouldRender(authentication.user);"
+                      ng-click="navigateTo(item.state, $event)">
+          <p>{{::item.title}}</p>
+        </md-list-item>
+        <md-list-item ng-switch-when="dropdown"
+                      ng-if="item.shouldRender(authentication.user);"
+                      ng-click="toggleMenu(item.title)">
+          <p>{{::item.title}}</p>
+          <ng-md-icon icon="keyboard_arrow_down" ng-if="!dropdownOpen[item.title]"></ng-md-icon>
+          <ng-md-icon icon="keyboard_arrow_up" ng-if="dropdownOpen[item.title]"></ng-md-icon>
+        </md-list-item>
+        <ul id="list_{{ item.title }}" hide>
+          <li ng-repeat="subitem in item.items | orderBy: 'position'"
+              ui-sref-active="active"
+              ng-if="subitem.shouldRender(authentication.user);">
+            <md-list-item ui-sref="{{subitem.state}}" ng-click="navigateTo(subitem.state, $event)" aria-label="{{subitem.title}}">
+              <ng-md-icon icon="{{subitem.icon}}"></ng-md-icon>
+              <p ng-bind="subitem.title"></p>
+            </md-list-item>
+          </li>
+        </ul>
+    </li>
+    <li ng-hide="authentication.user" ui-sref-active="active">
+      <md-list-item ui-sref="authentication.signup" ng-click="navigateTo('authentication.signup', $event)">
+        <p>Sign Up</p>
+      </md-list-item>
+    </li>
+    <li ng-hide="authentication.user" ui-sref-active="active">
+      <md-list-item ui-sref="authentication.signin" ng-click="navigateTo('authentication.signin', $event)">
+        <p>Sign In</p>
+      </md-list-item>
+    </li>
+    <li ng-show="authentication.user">
+       <md-list-item ng-click="toggleMenu('User')" aria-label="Toggle Menu User">
+          <img  ng-src="{{authentication.user.profileImageURL}}"
+                alt="{{authentication.user.displayName}}"
+                class="header-profile-image" />
+          <p ng-bind="authentication.user.displayName"></p>
+          <ng-md-icon icon="keyboard_arrow_down" ng-if="!dropdownOpen['User']"></ng-md-icon>
+          <ng-md-icon icon="keyboard_arrow_up" ng-if="dropdownOpen['User']"></ng-md-icon>
+        </md-list-item>
+        <ul id="list_User" hide>
+          <li ui-sref-active="active"> 
+            <md-list-item ui-sref="settings.profile" ng-click="navigateTo('settings.profile', $event)">
+              <md-icon></md-icon>
+              <p>Edit Profile</p>
+            </md-list-item>
+          </li>
+          <li ui-sref-active="active">
+            <md-list-item ui-sref="settings.picture" ng-click="navigateTo('settings.picture', $event)">
+              <md-icon></md-icon>
+              <p>Change Profile Picture</p>
+            </md-list-item>
+          </li>
+          <li ui-sref-active="active">
+            <md-list-item ui-sref="settings.password" ng-show="authentication.user && authentication.user.provider === 'local'" ng-click="navigateTo('settings.password', $event)">
+              <md-icon></md-icon>
+              <p>Change Password</p>
+            </md-list-item>
+          </li>
+          <li ui-sref-active="active">
+            <md-list-item ui-sref="settings.accounts" ng-click="navigateTo('settings.accounts', $event)">
+              <md-icon></md-icon>
+              <p>Manage Social Accounts</p>
+            </md-list-item>
+          </li>
+          <md-divider></md-divider>
+          <li>
+            <md-list-item ng-click="navigateTo('/api/auth/signout', $event)">
+              <md-icon></md-icon>
+              <p>Signout</p>
+            </md-list-item>
+          </li>
+        </ul>
+    </li>
+  </ul>
+</md-content>

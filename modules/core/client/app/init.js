@@ -13,13 +13,6 @@ angular.module(ApplicationConfiguration.applicationModuleName).config(['$locatio
 ]);
 
 angular.module(ApplicationConfiguration.applicationModuleName)
-  .controller('ToolbarCtrl', ['$scope', '$mdSidenav', function($scope, $mdSidenav){
-    $scope.toggleSidenav = function(menuId) {
-      $mdSidenav(menuId).toggle();
-    };
-  }]);
-
-angular.module(ApplicationConfiguration.applicationModuleName)
   .run(function ($rootScope, $mdSidenav, $state, $timeout) {
     $rootScope.navigateTo = function(to, event) {
       if (typeof to === 'object' && to.state && to.param) {

@@ -36,31 +36,16 @@
 </head>
 
 <body class="ng-cloak" layout="column">
-  <!-- <header data-ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
-  <section class="content">
-    <section class="container">
-      {% block content %}{% endblock %}
-    </section>
-  </section> -->
-  <md-toolbar layout="row" ng-controller="ToolbarCtrl">
-    <div class="md-toolbar-tools">
-      <md-button ng-click="toggleSidenav('left')" hide-gt-sm class="md-icon-button">
-        <md-icon aria-label="Menu" md-svg-icon="https://s3-us-west-2.amazonaws.com/s.cdpn.io/68133/menu.svg"></md-icon>
-      </md-button>
-      <h1><a href="/">MEAN.JS</a></h1>
-    </div>
-  </md-toolbar>
+  <header ng-include="'/modules/core/client/views/toolbar.client.view.html'"></header>
   <div layout="row" flex>
-      <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
-        <md-content flex role="navigation" class="md-default-theme">
-          <header ng-include="'/modules/core/client/views/header.client.view.html'"></header>
+    <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+      <div ng-include="'/modules/core/client/views/sidenav.client.view.html'"></div>
+    </md-sidenav>
+    <div layout="column" flex id="content">
+        <md-content layout="column" flex class="md-padding">
+           {% block content %}{% endblock %}
         </md-content>
-      </md-sidenav>
-      <div layout="column" flex id="content">
-          <md-content layout="column" flex class="md-padding">
-             {% block content %}{% endblock %}
-          </md-content>
-      </div>
+    </div>
   </div>
 
 
