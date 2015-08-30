@@ -1,41 +1,58 @@
-<div data-ng-controller="AuthenticationController">
+<div ng-controller="AuthenticationController">
   <h3 layout="" layout-align="center center">Or sign up using your email</h3>
   <md-whiteframe class="md-whiteframe-z1" layout="">
-    <form name="userForm" data-ng-submit="signup()" novalidate autocomplete="off">
+    <form name="userForm" name="userForm" ng-submit="signup(userForm.$valid)" novalidate autocomplete="off">
       <fieldset>
         <div layout layout-sm="column">
-          <md-input-container>
+          <md-input-container class="form-group" show-errors>
             <label>First Name</label>
             <input type="text" id="firstName" name="firstName"
-                 data-ng-model="credentials.firstName">
+                 ng-model="credentials.firstName" required>
+            <div ng-messages="userForm.firstName.$error" role="alert">
+              <div class="help-block error-text" ng-message="required">First name is required.</div>
+            </div>
           </md-input-container>
-          <md-input-container>
+          <md-input-container class="form-group" show-errors>
             <label>Last Name</label>
-             <input type="text" id="lastName" name="lastName"
-                 data-ng-model="credentials.lastName">
+            <input type="text" id="lastName" name="lastName"
+              ng-model="credentials.lastName" required>
+            <div ng-messages="userForm.lastName.$error" role="alert">
+              <div class="help-block error-text" ng-message="required">Last name is required.</div>
+            </div>
           </md-input-container>
         </div>
-        <md-input-container>
+        <md-input-container class="form-group" show-errors>
           <label>Email</label>
-          <input type="email" id="email" name="email" data-ng-model="credentials.email">
+          <input type="email" id="email" name="email" ng-model="credentials.email" required>
+          <div ng-messages="userForm.email.$error" role="alert">
+            <div class="help-block error-text" ng-message="required">Email address is required.</div>
+            <div class="help-block error-text" ng-message="email">Email address is invalid.</div>
+          </div>
         </md-input-container>
-        <md-input-container>
+        <md-input-container class="form-group" show-errors>
           <label>Username</label>
           <input type="text" id="username" name="username"
-               data-ng-model="credentials.username">
+               ng-model="credentials.username" required>
+          <div ng-messages="userForm.username.$error" role="alert">
+            <div class="help-block error-text" ng-message="required">Username is required.</div>
+          </div>
         </md-input-container>
-        <md-input-container>
+        <md-input-container class="form-group" show-errors>
           <label>Password</label>
           <input type="password" id="password" name="password"
-               data-ng-model="credentials.password">
+               ng-model="credentials.password" required ng-minlength="6">
+          <div ng-messages="userForm.password.$error" role="alert">
+            <div class="help-block error-text" ng-message="required">Password is required.</div>
+            <div class="help-block error-text" ng-message="minlength">Password is too short.</div>
+          </div>
         </md-input-container>
         <div layout="row" layout-align="center center">
           <md-button type="submit" class="md-raised md-primary">Sign up</md-button>
           <p>&nbsp; or&nbsp;</p>
-          <md-button class="md-primary" data-ui-sref="authentication.signin">Sign in</md-button>
+          <md-button class="md-primary" ui-sref="authentication.signin">Sign in</md-button>
         </div>
-        <alert type="danger" data-ng-show="error" layout="" layout-align="center">
-          <md-button class="md-warn md-hue-2" data-ng-bind="error"></md-button>
+        <alert type="danger" ng-show="error" layout="" layout-align="center">
+          <md-button class="md-warn md-hue-2" ng-bind="error"></md-button>
         </alert>
       </fieldset>
     </form>

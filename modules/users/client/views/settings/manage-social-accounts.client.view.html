@@ -1,8 +1,8 @@
-<section layout="column" layout-align="center center" data-ng-controller="SocialAccountsController">
-  <h3 data-ng-show="hasConnectedAdditionalSocialAccounts()">Connected social accounts:</h3>
+<section layout="column" layout-align="center center" ng-controller="SocialAccountsController">
+  <h3 ng-show="hasConnectedAdditionalSocialAccounts()">Connected social accounts:</h3>
   <div>
-    <md-button  data-ng-repeat="(providerName, providerData) in user.additionalProvidersData"
-                data-ng-click="removeUserSocialAccount(providerName)"
+    <md-button  ng-repeat="(providerName, providerData) in user.additionalProvidersData"
+                ng-click="removeUserSocialAccount(providerName)"
                 class="md-fab md-primary"
                 style="background-size: 112% 112%;
         background-position: -3px;
@@ -11,9 +11,9 @@
         background-color: white;
     "></md-button>
   </div>
-  <h3 data-ng-show="hasConnectedAdditionalSocialAccounts()">Unconnected social accounts:</h3>
+  <h3 ng-show="hasConnectedAdditionalSocialAccounts()">Unconnected social accounts:</h3>
   <div>
-    <md-button  data-ng-hide="isConnectedSocialAccount('facebook')"
+    <md-button  ng-hide="isConnectedSocialAccount('facebook')"
                 ng-click="navigateTo('/api/auth/facebook', $event)"
                 class="md-fab md-primary"
                 style="background-size: 112% 112%;
@@ -22,7 +22,7 @@
         background-repeat: space;
         background-color: white;
     "></md-button>
-    <md-button  data-ng-hide="isConnectedSocialAccount('twitter')"
+    <md-button  ng-hide="isConnectedSocialAccount('twitter')"
                 ng-click="navigateTo('/api/auth/twitter', $event)"
                 class="md-fab md-primary"
                 style="background-size: 112% 112%;
@@ -31,7 +31,7 @@
         background-repeat: space;
         background-color: white;
     "></md-button>
-    <md-button  data-ng-hide="isConnectedSocialAccount('google')"
+    <md-button  ng-hide="isConnectedSocialAccount('google')"
                 ng-click="navigateTo('/api/auth/google', $event)"
                 class="md-fab md-primary"
                 style="background-size: 112% 112%;
@@ -40,7 +40,7 @@
         background-repeat: space;
         background-color: white;
     "></md-button>
-    <md-button  data-ng-hide="isConnectedSocialAccount('linkedin')"
+    <md-button  ng-hide="isConnectedSocialAccount('linkedin')"
                 ng-click="navigateTo('/api/auth/linkedin', $event)"
                 class="md-fab md-primary"
                 style="background-size: 112% 112%;
@@ -49,7 +49,7 @@
         background-repeat: space;
         background-color: white;
     "></md-button>
-    <md-button  data-ng-hide="isConnectedSocialAccount('github')"
+    <md-button  ng-hide="isConnectedSocialAccount('github')"
                 ng-click="navigateTo('/api/auth/github', $event)"
                 class="md-fab md-primary"
                 style="background-size: 112% 112%;
@@ -58,7 +58,7 @@
         background-repeat: space;
         background-color: white;
     "></md-button>
-    <md-button  data-ng-hide="isConnectedSocialAccount('paypal')"
+    <md-button  ng-hide="isConnectedSocialAccount('paypal')"
                 ng-click="navigateTo('/api/auth/facebook', $event)"
                 class="md-fab md-primary"
                 style="background-size: 90% 90%;

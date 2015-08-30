@@ -1,11 +1,11 @@
-<section data-ng-controller="HomeController">
-  <md-whiteframe class="md-whiteframe-z1 md-padding" layout="column" layout-align="center center">
+<section ng-controller="HomeController">
+  <div class="jumbotron md-padding" layout="column" layout-align="center center">
     <img alt="MEAN.JS" class="img-responsive" src="modules/core/client/img/brand/logo.png" />
     <p>
       Open-Source Full-Stack Solution For MEAN Applications
     </p>
     <md-button class="md-raised md-primary" ng-href="http://meanjs.org" target="_blank">Learn more</md-button>
-  </md-whiteframe>
+  </div>
     <div>
       <h2>Congrats! You've configured and run the sample application.</h2>
       <p>MEAN.JS is a web application boilerplate, which means you should start changing everything :-)</p>
@@ -13,7 +13,7 @@
       <ul>
         <li>
           Click
-          <em>Signup</em> to get started.
+          <em>Sign Up</em> to get started.
         </li>
         <li>
           Configure your app to work with your social accounts, by editing the
@@ -31,24 +31,24 @@
       </ul>
     </div>
     <div layout-gt-md="row" layout-align-gt-="space-between center">
-      <div>
+      <div layout-padding>
         <h2><strong>M</strong>ongoDB</h2>
-        <p><a target="_blank" href="http://mongodb.org/">MongoDB</a> is a database. MongoDB's <a target="_blank" href="http://docs.mongodb.org/manual/">great manual</a> is the place to get started with NoSQL and MongoDB.</p>
+        <p><a target="_blank" href="http://mongodb.org/">MongoDB</a> is a NoSQL database. MongoDB's <a target="_blank" href="http://docs.mongodb.org/manual/">great manual</a> is the place to get started with NoSQL and MongoDB.</p>
       </div>
-      <div>
+      <div layout-padding>
         <h2><strong>E</strong>xpress</h2>
-        <p><a target="_blank" href="http://expressjs.com/"> Express</a> is an app server. Check out <a target="_blank" href="http://expressjs.com/4x/api.html">The ExpressJS API reference for more information</a> or <a target="_blank" href="http://stackoverflow.com/questions/8144214/learning-express-for-node-js">StackOverflow</a> for more info.</p>
+        <p><a target="_blank" href="http://expressjs.com/"> Express</a> is a NodeJS server-side application web framework. Check out <a target="_blank" href="http://expressjs.com/4x/api.html">The ExpressJS API reference for more information</a> or <a target="_blank" href="http://stackoverflow.com/questions/8144214/learning-express-for-node-js">StackOverflow</a> for more info.</p>
       </div>
-      <div>
+      <div layout-padding>
         <h2><strong>A</strong>ngularJS</h2>
-        <p>AngularJS is web app framework. <a target="_blank" href="http://angularjs.org/">Angular's website</a> offers a lot. The <a target="_blank" href="http://www.thinkster.io/">Thinkster Popular Guide</a> and <a target="_blank" href="https://egghead.io/">Egghead Videos</a> are great resources.</p>
+        <p><a target="_blank" href="http://angularjs.org/">AngularJS</a> is client-side web application framework. The <a target="_blank" href="http://www.thinkster.io/">Thinkster Popular Guide</a> and <a target="_blank" href="https://egghead.io/">Egghead Videos</a> are great resources.</p>
       </div>
-      <div>
+      <div layout-padding>
         <h2><strong>N</strong>ode.js</h2>
-        <p><a target="_blank" href="http://nodejs.org/">Node.js</a> is a web server. Node's website and this <a target="_blank" href="http://stackoverflow.com/questions/2353818/how-do-i-get-started-with-node-js">stackOverflow thread</a> offer excellent starting points to get to grasps with node.</p>
+        <p><a target="_blank" href="http://nodejs.org/">Node.js</a> is a JavaScript run-time, popular for being a web server platform. Node's website and this <a target="_blank" href="http://stackoverflow.com/questions/2353818/how-do-i-get-started-with-node-js">stackOverflow thread</a> offer excellent starting points to get to grasps with node.</p>
       </div>
     </div>
-    <md-whiteframe class="md-whiteframe-z1 md-padding" layout="column">
+    <div class="well md-padding" layout="column">
       <h2>MEAN.JS Documentation</h2>
       <p>
         Once you're familiar with the foundation technology, check out the MEAN.JS Documentation:
@@ -67,7 +67,7 @@
           <li><a target="_blank" href="http://blog.meanjs.org">Blog</a>
           </li>
         </ul>
-    </md-whiteframe>
+    </div>
     <br>Enjoy &amp; Keep Us Updated,
     <br>The MEAN.JS Team.
 </section>

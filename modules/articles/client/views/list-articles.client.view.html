@@ -1,23 +1,23 @@
-<section data-ng-controller="ArticlesController" data-ng-init="find()">
+<section ng-controller="ArticlesController" ng-init="find()">
   <div class="page-header">
     <h1>Articles</h1>
   </div>
-  <md-card data-ng-repeat="article in articles">
+  <md-card ng-repeat="article in articles">
     <md-card-content>
-      <h2 class="md-title" data-ng-bind="article.title"></h2>
-      <p data-ng-bind="article.content"></p>
+      <h2 class="md-title" ng-bind="article.title"></h2>
+      <p ng-bind="article.content"></p>
       <small>
         Posted on
-        <span data-ng-bind="article.created | date:'mediumDate'"></span>
+        <span ng-bind="article.created | date:'mediumDate'"></span>
         by
-        <span data-ng-bind="article.user.displayName"></span>
+        <span ng-bind="article.user.displayName"></span>
       </small>
     </md-card-content>
     <div class="md-actions" layout="row" layout-align="end center">
-      <md-button data-ui-sref="articles.view({articleId: article._id})">See More</md-button>
+      <md-button ui-sref="articles.view({articleId: article._id})">See More</md-button>
     </div>
   </md-card>
-  <div layout layout-align="center center" data-ng-if="articles.$resolved && !articles.length">
-    No articles yet, why don't you <md-button class="md-primary" data-ui-sref="articles.create">create one</md-button>?
+  <div layout layout-align="center center" ng-if="articles.$resolved && !articles.length">
+    No articles yet, why don't you <md-button class="md-primary" ui-sref="articles.create">create one</md-button>?
   </div>
 </section>

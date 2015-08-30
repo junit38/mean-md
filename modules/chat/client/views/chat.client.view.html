@@ -1,24 +1,24 @@
 <!-- The chat view -->
-<section data-ng-controller="ChatController">
+<section ng-controller="ChatController">
   <h1>Chat Example</h1>
   <!-- The message form -->
   <form ng-submit="sendMessage();">
     <fieldset>
       <md-input-container>
         <label>Message</label>
-        <input type="text" id="messageText" name="messageText" data-ng-model="messageText">
+        <input type="text" id="messageText" name="messageText" ng-model="messageText">
       </md-input-container>
-      <md-button type="submit" class="md-raised md-primary">Submit</md-button>
+      <md-button type="submit" ng-disabled="!messageText.length" class="md-raised md-primary">Submit</md-button>
     </fieldset>
   </form>
   <md-list>
     <md-subheader class="md-no-sticky">2 line item</md-subheader>
-    <md-list-item class="md-3-line" data-ng-repeat="message in messages">
-      <img data-ng-src="{{message.profileImageURL}}" class="md-avatar" alt="{{message.username}}" />
+    <md-list-item class="md-3-line" ng-repeat="message in messages">
+      <img ng-src="{{message.profileImageURL}}" class="md-avatar" alt="{{message.username}}" />
       <div class="md-list-item-text">
-        <h3 data-ng-bind="message.username"></h3>
-        <p data-ng-bind="message.text"></p>
-        <small data-ng-bind="message.created | date:'mediumTime'"></small>
+        <h3 ng-bind="message.username"></h3>
+        <p ng-bind="message.text"></p>
+        <small ng-bind="message.created | date:'mediumTime'"></small>
       </div>
     </md-list-item>
   </md-list>

@@ -1,23 +1,23 @@
-<section data-ng-controller="ChangeProfilePictureController">
+<section ng-controller="ChangeProfilePictureController">
   <form layout="" layout-align="center center">
     <fieldset>
       <md-whiteframe class="md-whiteframe-z1 md-padding" layout="" layout-align="center center">
-        <img data-ng-src="{{imageURL}}" alt="{{user.displayName}}" class="user-profile-picture">
+        <img ng-src="{{imageURL}}" alt="{{user.displayName}}" class="user-profile-picture">
       </md-whiteframe>
       <div layout="" layout-align="center center">
-        <md-button class="md-raised btn-file" data-ng-hide="uploader.queue.length">
+        <md-button class="md-raised btn-file" ng-hide="uploader.queue.length">
           Select Image <input type="file" nv-file-select uploader="uploader">
         </md-button>
       </div>
-      <div data-ng-show="uploader.queue.length" layout="" layout-align="center">
-        <md-button class="md-raised md-primary" data-ng-click="uploadProfilePicture();">Upload</md-button>
-        <md-button class="md-raised" data-ng-click="cancelUpload();">Cancel</md-button>
+      <div ng-show="uploader.queue.length" layout="" layout-align="center">
+        <md-button class="md-raised md-primary" ng-click="uploadProfilePicture();">Upload</md-button>
+        <md-button class="md-raised" ng-click="cancelUpload();">Cancel</md-button>
       </div>
-      <div data-ng-show="success" layout="" layout-align="center">
+      <div ng-show="success" layout="" layout-align="center">
         <md-button class="md-success">Profile Picture Changed Successfully</md-button>
       </div>
-      <div data-ng-show="error" layout="" layout-align="center">
-        <md-button class="md-warn md-hue-2" data-ng-bind="error"></md-button>
+      <div ng-show="error" layout="" layout-align="center">
+        <md-button class="md-warn md-hue-2" ng-bind="error"></md-button>
       </div>
     </fieldset>
   </form>

@@ -2,15 +2,15 @@
   <h1>Users</h1>
   <md-input-container>
     <label>Search</label>
-    <input type="text" data-ng-model="search" ng-change="figureOutItemsToDisplay()" />
+    <input type="text" ng-model="search" ng-change="figureOutItemsToDisplay()" />
   </md-input-container>
   <md-whiteframe class="md-whiteframe-z1" ng-if="pagedItems.length">
     <md-list>
-      <md-list-item class="md-2-line" data-ng-repeat="user in pagedItems" ng-click="navigateTo({state: 'admin.user', param: {userId: user._id}}, $event)" aria-label="{{ user.username }}">
+      <md-list-item class="md-2-line" ng-repeat="user in pagedItems" ng-click="navigateTo({state: 'admin.user', param: {userId: user._id}}, $event)" aria-label="{{ user.username }}">
         <img ng-src="{{ user.profileImageURL }}" alt="{{ user.username }}" class="md-avatar" />
         <div class="md-list-item-text">
-          <h3 data-ng-bind="user.username"></h3>
-          <h4 data-ng-bind="user.email"></h4>
+          <h3 ng-bind="user.username"></h3>
+          <h4 ng-bind="user.email"></h4>
         </div>
       </md-list-item>
     </md-list>

@@ -1,29 +1,42 @@
-<section data-ng-controller="EditProfileController">
+<section ng-controller="EditProfileController">
   <md-whiteframe class="md-whiteframe-z1" layout="column">
-    <form name="userForm" data-ng-submit="updateUserProfile(userForm.$valid)" autocomplete="off">
+    <form name="userForm" ng-submit="updateUserProfile(userForm.$valid)" novalidate autocomplete="off">
       <fieldset>
-        <md-input-container>
+        <md-input-container class="form-group" show-errors>
           <label>First Name</label>
-          <input type="text" id="firstName" name="firstName" data-ng-model="user.firstName">
+          <input type="text" id="firstName" name="firstName" ng-model="user.firstName" required>
+          <div ng-messages="userForm.firstName.$error" role="alert">
+            <div class="help-block error-text" ng-message="required">First name is required.</div>
+          </div>
         </md-input-container>
-        <md-input-container>
+        <md-input-container class="form-group" show-errors>
           <label>Last Name</label>
-          <input type="text" id="lastName" name="lastName" data-ng-model="user.lastName">
+          <input type="text" id="lastName" name="lastName" ng-model="user.lastName" required>
+          <div ng-messages="userForm.lastName.$error" role="alert">
+            <div class="help-block error-text" ng-message="required">Last name is required.</div>
+          </div>
         </md-input-container>
-        <md-input-container>
+        <md-input-container class="form-group" show-errors>
           <label>Email</label>
-          <input type="email" id="email" name="email" data-ng-model="user.email">
+          <input type="email" id="email" name="email" ng-model="user.email" required>
+          <div ng-messages="userForm.email.$error" role="alert">
+            <div class="help-block error-text" ng-message="required">Email address is required.</div>
+            <div class="help-block error-text" ng-message="email">Email address is invalid.</div>
+          </div>
         </md-input-container>
-        <md-input-container>
+        <md-input-container class="form-group" show-errors>
           <label>Username</label>
-          <input type="text" id="username" name="username" data-ng-model="user.username">
+          <input type="text" id="username" name="username" ng-model="user.username" required>
+          <div ng-messages="userForm.username.$error" role="alert">
+            <div class="help-block error-text" ng-message="required">Username is required.</div>
+          </div>
         </md-input-container>
         <md-button type="submit" class="md-raised md-primary">Save Profile</md-button>
-        <div data-ng-show="success" layout="" layout-align="center">
+        <div ng-show="success" layout="" layout-align="center">
           <md-button class="md-success">Profile Saved Successfully</md-button>
         </div>
-        <div data-ng-show="error" layout="" layout-align="center">
-          <md-button class="md-warn md-hue-2" data-ng-bind="error"></md-button>
+        <div ng-show="error" layout="" layout-align="center">
+          <md-button class="md-warn md-hue-2" ng-bind="error"></md-button>
         </div>
       </fieldset>
     </form>
