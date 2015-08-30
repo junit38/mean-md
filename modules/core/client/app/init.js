@@ -12,19 +12,23 @@ angular.module(ApplicationConfiguration.applicationModuleName).config(['$locatio
   }
 ]);
 
+// global navigate function
 angular.module(ApplicationConfiguration.applicationModuleName)
   .run(function ($rootScope, $mdSidenav, $state, $timeout) {
     $rootScope.navigateTo = function(to, event) {
-      if (typeof to === 'object' && to.state && to.param) {
+      if (typeof to === 'object' && to.state && to.param) { // state parameters treatment
         $state.transitionTo(to.state, to.param);
       } else if (typeof to === 'string') {
-        if ($mdSidenav('left').isOpen())
+        if ($mdSidenav('left').isOpen()) {// hide sidebar if open
           $mdSidenav('left').toggle();
-        if (to && to[0] === '/') {
+        }
+        
+        if (to && to[0] === '/') { // signout treatment
           window.target = '_self';
           window.location = to;
-        } else if (to && to !== '')
+        } else if (to && to !== '') {
           $state.go(to);
+        }
       }
     };
   });
