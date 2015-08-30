@@ -3,69 +3,44 @@
   <div>
     <md-button  ng-repeat="(providerName, providerData) in user.additionalProvidersData"
                 ng-click="removeUserSocialAccount(providerName)"
-                class="md-fab md-primary"
-                style="background-size: 112% 112%;
-        background-position: -3px;
-        background-image: url('/modules/users/client/img/buttons/{{providerName}}.png');
-        background-repeat: space;
-        background-color: white;
+                class="md-fab md-primary social-account-container"
+                ng-class="{
+                    'social-paypal': providerName === 'paypal'
+                }"
+                style="background-image: url('/modules/users/client/img/buttons/{{providerName}}.png');
     "></md-button>
   </div>
   <h3 ng-show="hasConnectedAdditionalSocialAccounts()">Unconnected social accounts:</h3>
   <div>
     <md-button  ng-hide="isConnectedSocialAccount('facebook')"
                 ng-click="navigateTo('/api/auth/facebook', $event)"
-                class="md-fab md-primary"
-                style="background-size: 112% 112%;
-        background-position: -3px;
-        background-image: url('/modules/users/client/img/buttons/facebook.png');
-        background-repeat: space;
-        background-color: white;
+                class="md-fab md-primary social-account-container"
+                style="background-image: url('/modules/users/client/img/buttons/facebook.png');
     "></md-button>
     <md-button  ng-hide="isConnectedSocialAccount('twitter')"
                 ng-click="navigateTo('/api/auth/twitter', $event)"
-                class="md-fab md-primary"
-                style="background-size: 112% 112%;
-        background-position: -3px;
-        background-image: url('/modules/users/client/img/buttons/twitter.png');
-        background-repeat: space;
-        background-color: white;
+                class="md-fab md-primary social-account-container"
+                style="background-image: url('/modules/users/client/img/buttons/twitter.png');
     "></md-button>
     <md-button  ng-hide="isConnectedSocialAccount('google')"
                 ng-click="navigateTo('/api/auth/google', $event)"
-                class="md-fab md-primary"
-                style="background-size: 112% 112%;
-        background-position: -3px;
-        background-image: url('/modules/users/client/img/buttons/google.png');
-        background-repeat: space;
-        background-color: white;
+                class="md-fab md-primary social-account-container"
+                style="background-image: url('/modules/users/client/img/buttons/google.png');
     "></md-button>
     <md-button  ng-hide="isConnectedSocialAccount('linkedin')"
                 ng-click="navigateTo('/api/auth/linkedin', $event)"
-                class="md-fab md-primary"
-                style="background-size: 112% 112%;
-        background-position: -3px;
-        background-image: url('/modules/users/client/img/buttons/linkedin.png');
-        background-repeat: space;
-        background-color: white;
+                class="md-fab md-primary social-account-container"
+                style="background-image: url('/modules/users/client/img/buttons/linkedin.png');
     "></md-button>
     <md-button  ng-hide="isConnectedSocialAccount('github')"
                 ng-click="navigateTo('/api/auth/github', $event)"
-                class="md-fab md-primary"
-                style="background-size: 112% 112%;
-        background-position: -3px;
-        background-image: url('/modules/users/client/img/buttons/github.png');
-        background-repeat: space;
-        background-color: white;
+                class="md-fab md-primary social-account-container"
+                style="background-image: url('/modules/users/client/img/buttons/github.png');
     "></md-button>
     <md-button  ng-hide="isConnectedSocialAccount('paypal')"
                 ng-click="navigateTo('/api/auth/facebook', $event)"
-                class="md-fab md-primary"
-                style="background-size: 90% 90%;
-        background-position: 4px;
-        background-image: url('/modules/users/client/img/buttons/paypal.png');
-        background-repeat: space;
-        background-color: white;
+                class="md-fab md-primary social-account-container social-paypal"
+                style="background-image: url('/modules/users/client/img/buttons/paypal.png');
     "></md-button>
   </div>
 </section>
