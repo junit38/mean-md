@@ -9,8 +9,9 @@
       <md-list-item class="md-2-line" ng-repeat="user in pagedItems" ng-click="navigateTo({state: 'admin.user', param: {userId: user._id}}, $event)" aria-label="{{ user.username }}">
         <img ng-src="{{ user.profileImageURL }}" alt="{{ user.username }}" class="md-avatar" />
         <div class="md-list-item-text">
-          <h3 ng-bind="user.username"></h3>
-          <h4 ng-bind="user.email"></h4>
+          <h4 ng-bind="user.username"></h4>
+          <p ng-bind="user.roles"></p>
+          <p ng-bind="user.email"></p>
         </div>
       </md-list-item>
     </md-list>

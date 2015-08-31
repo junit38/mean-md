@@ -5,21 +5,24 @@
       <fieldset>
         <md-input-container class="form-group" show-errors>
           <label>First Name</label>
-          <input name="firstName" type="text" ng-model="user.firstName" id="firstName"required>
+          <input name="firstName" type="text" ng-model="user.firstName" id="firstName" required />
           <div ng-messages="userForm.firstName.$error" role="alert">
             <div class="help-block error-text" ng-message="required">First name is required.</div>
           </div>
-        </md-input-container>
+        </md-input-container class="form-group" show-errors>
         <md-input-container class="form-group" show-errors>
           <label>Last Name</label>
-          <input type="text" name="lastName" ng-model="user.lastName" id="lastName" required>
+          <input type="text" name="lastName" ng-model="user.lastName" id="lastName" required />
           <div ng-messages="userForm.lastName.$error" role="alert">
             <div class="help-block error-text" ng-message="required">Last name is required.</div>
           </div>
-        </md-input-container>
+        </md-input-container class="form-group" show-errors>
         <md-input-container class="form-group" show-errors>
           <label>Roles</label>
-          <input type="text" name="roles" ng-model="user.roles" id="roles" ng-list />
+          <input type="text" name="roles" ng-model="user.roles" id="roles" ng-list required/>
+          <div ng-messages="userForm.roles.$error" role="alert">
+            <div class="help-block error-text" ng-message="required">At least one role is required.</div>
+          </div>
         </md-input-container>
         <md-button type="submit" class="md-raised md-primary">Update</md-button>
         <alert type="danger" ng-show="error" layout="" layout-align="center">

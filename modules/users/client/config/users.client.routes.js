@@ -67,9 +67,6 @@ angular.module('users').config(['$stateProvider',
       .state('password.reset.form', {
         url: '/:token',
         templateUrl: 'modules/users/client/views/password/reset-password.client.view.html'
-      })
-      .state('signout', {
-        url: '/api/auth/signout'
       });
   }
 ]);
