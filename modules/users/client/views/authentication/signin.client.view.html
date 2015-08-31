@@ -1,6 +1,6 @@
-<div ng-controller="AuthenticationController">
-  <h3 layout="" layout-align="center center">Or with your account</h3>
-  <md-whiteframe class="md-whiteframe-z1" layout="">
+<div layout="column" layout-align="center center" ng-controller="AuthenticationController">
+  <h3 class="md-title">Or with your account</h3>
+  <md-whiteframe class="md-whiteframe-z1">
     <form name="userForm" ng-submit="signin(userForm.$valid)" autocomplete="off" novalidate>
       <fieldset>
         <md-input-container class="form-group" show-errors>

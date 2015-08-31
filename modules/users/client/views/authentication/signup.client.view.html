@@ -1,6 +1,6 @@
-<div ng-controller="AuthenticationController">
-  <h3 layout="" layout-align="center center">Or sign up using your email</h3>
-  <md-whiteframe class="md-whiteframe-z1" layout="">
+<div layout="column" layout-align="center center" ng-controller="AuthenticationController">
+  <h3 class="md-title">Or sign up using your email</h3>
+  <md-whiteframe class="md-whiteframe-z1">
     <form name="userForm" name="userForm" ng-submit="signup(userForm.$valid)" novalidate autocomplete="off">
       <fieldset>
         <div layout layout-sm="column">

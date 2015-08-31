@@ -1,6 +1,6 @@
 <!-- The chat view -->
 <section ng-controller="ChatController">
-  <h1>Chat Example</h1>
+  <h1 class="md-display-1">Chat Example</h1>
   <!-- The message form -->
   <form ng-submit="sendMessage();">
     <fieldset>
@@ -18,7 +18,7 @@
       <div class="md-list-item-text">
         <h3 ng-bind="message.username"></h3>
         <p ng-bind="message.text"></p>
-        <small ng-bind="message.created | date:'mediumTime'"></small>
+        <small class="md-caption" ng-bind="message.created | date:'mediumTime'"></small>
       </div>
     </md-list-item>
   </md-list>

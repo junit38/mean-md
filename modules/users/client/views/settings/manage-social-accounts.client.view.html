@@ -1,5 +1,5 @@
 <section layout="column" layout-align="center center" ng-controller="SocialAccountsController">
-  <h3 ng-show="hasConnectedAdditionalSocialAccounts()">Connected social accounts:</h3>
+  <h3 class="md-title" ng-show="hasConnectedAdditionalSocialAccounts()">Connected social accounts:</h3>
   <div>
     <md-button  ng-repeat="(providerName, providerData) in user.additionalProvidersData"
                 ng-click="removeUserSocialAccount(providerName)"
@@ -10,7 +10,7 @@
                 style="background-image: url('/modules/users/client/img/buttons/{{providerName}}.png');
     "></md-button>
   </div>
-  <h3 ng-show="hasConnectedAdditionalSocialAccounts()">Unconnected social accounts:</h3>
+  <h3 class="md-title" ng-show="hasConnectedAdditionalSocialAccounts()">Unconnected social accounts:</h3>
   <div>
     <md-button  ng-hide="isConnectedSocialAccount('facebook')"
                 ng-click="navigateTo('/api/auth/facebook', $event)"
