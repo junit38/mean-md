@@ -17,7 +17,7 @@
           <ng-md-icon icon="keyboard_arrow_down" ng-if="!dropdownOpen[item.title]"></ng-md-icon>
           <ng-md-icon icon="keyboard_arrow_up" ng-if="dropdownOpen[item.title]"></ng-md-icon>
         </md-list-item>
-        <ul id="list_{{ item.title }}" hide>
+        <ul ng-show="dropdownOpen[item.title]" ng-animate="'animate'">
           <li ng-repeat="subitem in item.items | orderBy: 'position'"
               ui-sref-active="active"
               ng-if="subitem.shouldRender(authentication.user);">
@@ -47,7 +47,7 @@
           <ng-md-icon icon="keyboard_arrow_down" ng-if="!dropdownOpen['User']"></ng-md-icon>
           <ng-md-icon icon="keyboard_arrow_up" ng-if="dropdownOpen['User']"></ng-md-icon>
         </md-list-item>
-        <ul id="list_User" hide>
+        <ul ng-show="dropdownOpen['User']" ng-animate="'animate'">
           <li ui-sref-active="active"> 
             <md-list-item ui-sref="settings.profile" ng-click="navigateTo('settings.profile', $event)">
               <md-icon></md-icon>

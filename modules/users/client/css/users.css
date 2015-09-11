@@ -45,3 +45,12 @@
 .authenticationGridList md-grid-tile {
   transition: all 400ms ease-out 50ms;
 }
+.pagination {
+  list-style: none;
+}
+.pagination li {
+  padding: 3px;
+}
+.pagination li.disabled{
+  opacity: 0.3;
+}

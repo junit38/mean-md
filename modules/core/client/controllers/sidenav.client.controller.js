@@ -27,7 +27,6 @@ angular.module('core').controller('SidenavController', ['$scope', '$state', '$lo
       } else {
         $scope.dropdownOpen[elem] = true;
       }
-      $('#list_' + elem).toggle('preview');
     };
   }
 ]);
