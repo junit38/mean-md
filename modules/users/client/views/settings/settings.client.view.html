@@ -1,22 +1,6 @@
 <section ng-controller="SettingsController">
   <h1 class="md-display-1">Settings</h1>
   <div layout-gt-md="row" layout-align="space-around">
-    <nav flex-gt-md="20">
-      <ul class="nav nav-pills nav-stacked">
-        <li ui-sref-active="active">
-          <a ui-sref="settings.profile">Edit Profile</a>
-        </li>
-        <li ui-sref-active="active">
-          <a ui-sref="settings.picture">Change Profile Picture</a>
-        </li>
-        <li ui-sref-active="active" ng-show="user.provider === 'local'">
-          <a ui-sref="settings.password">Change Password</a>
-        </li>
-        <li ui-sref-active="active">
-          <a ui-sref="settings.accounts">Manage Social Accounts</a>
-        </li>
-      </ul>
-    </nav>
     <div ui-view flex-gt-md="75"></div>
   </div>
 </section>
