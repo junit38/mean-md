@@ -49,7 +49,8 @@
           </div>
         </md-input-container>
         <md-input-container ng-show="!userForm.password.$pristine">
-          <md-progress-linear class="{{strengthColor}}" value="{{strengthProgress}}"></md-progress-linear>
+          <md-progress-linear class="{{strengthColor}}" value="{{strengthProgress}}"
+                      md-buffer-value="{{strengthProgress}}"></md-progress-linear>
         </md-input-container>
         <div layout="row" layout-align="center center">
           <md-button type="submit" class="md-raised md-primary">Sign up</md-button>
