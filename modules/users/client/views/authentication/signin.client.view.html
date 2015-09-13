@@ -6,7 +6,7 @@
         <md-input-container class="form-group" show-errors>
           <label>Username</label>
           <input  type="text" id="username" name="username"
-                  ng-model="credentials.username" required>
+                  ng-model="credentials.username" lowercase required>
           <div ng-messages="userForm.username.$error" role="alert">
             <div class="help-block error-text" ng-message="required">Username is required.</div>
           </div>
