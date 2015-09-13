@@ -48,10 +48,9 @@
             </div>
           </div>
         </md-input-container>
-        <div class="form-group" ng-show="!userForm.password.$pristine">
-          <label>Password Strength</label>
-          <progressbar value="strengthProgress" type="{{strengthColor}}"><span style="color:white; white-space:nowrap;">{{strengthProgress}}%</span></progressbar>
-        </div>
+        <md-input-container ng-show="!userForm.password.$pristine">
+          <md-progress-linear class="{{strengthColor}}" value="{{strengthProgress}}"></md-progress-linear>
+        </md-input-container>
         <div layout="row" layout-align="center center">
           <md-button type="submit" class="md-raised md-primary">Sign up</md-button>
           <p>&nbsp; or&nbsp;</p>
