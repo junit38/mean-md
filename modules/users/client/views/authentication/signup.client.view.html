@@ -40,11 +40,14 @@
         <md-input-container class="form-group" show-errors>
           <label>Password</label>
           <input type="password" id="password" name="password"
-               ng-model="credentials.password" popover="{{popoverMsg}}" popover-trigger="focus" password-validator required>
+               ng-model="credentials.password"password-validator required>
+          <md-tooltip ng-show="popoverMsg">
+            {{popoverMsg}}
+          </md-tooltip>
           <div ng-messages="userForm.password.$error" role="alert">
             <div class="help-block error-text" ng-message="required">Password is required.</div>
-            <div ng-repeat="passwordError in passwordErrors">
-              <p class="help-block error-text" ng-show="userForm.password.$error.strength">{{passwordError}}</p>
+            <div ng-repeat="passwordError in passwordErrors" class="help-block error-text" ng-show="userForm.password.$error.strength" ng-message="">
+              {{passwordError}}
             </div>
           </div>
         </md-input-container>
