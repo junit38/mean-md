@@ -46,14 +46,14 @@
           </md-tooltip>
           <div ng-messages="userForm.password.$error" role="alert">
             <div class="help-block error-text" ng-message="required">Password is required.</div>
-            <div ng-repeat="passwordError in passwordErrors" class="help-block error-text" ng-show="userForm.password.$error.strength" ng-message="">
+            <div ng-repeat="passwordError in passwordErrors" class="help-block error-text" ng-show="userForm.password.$error.requirements" ng-message="">
               {{passwordError}}
             </div>
           </div>
         </md-input-container>
-        <md-input-container ng-show="!userForm.password.$pristine">
-          <md-progress-linear class="{{strengthColor}}" value="{{strengthProgress}}"
-                      md-buffer-value="{{strengthProgress}}"></md-progress-linear>
+        <md-input-container ng-show="!userForm.password.$error.required">
+          <md-progress-linear class="{{requirementsColor}}" value="{{requirementsProgress}}"
+                      md-buffer-value="{{requirementsProgress}}"></md-progress-linear>
         </md-input-container>
         <div layout="row" layout-align="center center">
           <md-button type="submit" class="md-raised md-primary">Sign up</md-button>
