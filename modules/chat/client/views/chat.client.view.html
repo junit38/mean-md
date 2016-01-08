@@ -2,18 +2,18 @@
 <section ng-controller="ChatController">
   <h1 class="md-display-1">Chat Example</h1>
   <!-- The message form -->
-  <form ng-submit="sendMessage();">
+  <form ng-submit="vm.sendMessage();">
     <fieldset>
       <md-input-container>
         <label>Message</label>
-        <input type="text" id="messageText" name="messageText" ng-model="messageText">
+        <input type="text" id="messageText" name="messageText" class="form-control" ng-model="vm.messageText" placeholder="Enter new message">
       </md-input-container>
-      <md-button type="submit" ng-disabled="!messageText.length" class="md-raised md-primary">Submit</md-button>
+      <md-button type="submit" class="md-raised md-primary" ng-disabled="!vm.messageText.length">Submit</md-button>
     </fieldset>
   </form>
   <md-list>
     <md-subheader class="md-no-sticky">2 line item</md-subheader>
-    <md-list-item class="md-3-line" ng-repeat="message in messages">
+    <md-list-item class="md-3-line" ng-repeat="message in vm.messages">
       <img ng-src="{{message.profileImageURL}}" class="md-avatar" alt="{{message.username}}" />
       <div class="md-list-item-text">
         <h3 ng-bind="message.username"></h3>
