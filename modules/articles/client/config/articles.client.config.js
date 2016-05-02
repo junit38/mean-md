@@ -18,7 +18,7 @@
     // Add the dropdown list item
     Menus.addSubMenuItem('topbar', 'articles', {
       title: 'List Articles',
-      icon: 'list'
+      icon: 'list',
       state: 'articles.list'
     });
 
@@ -26,7 +26,7 @@
     Menus.addSubMenuItem('topbar', 'articles', {
       title: 'Create Article',
       state: 'articles.create',
-      icon: 'create'
+      icon: 'create',
       roles: ['user']
     });
   }
